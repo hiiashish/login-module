@@ -1,0 +1,1 @@
+export const LOGIN_FAILED = 'Log-in attempt unsuccessful';
