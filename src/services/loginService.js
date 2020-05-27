@@ -2,6 +2,7 @@ import axios from "axios";
 import * as messages from '../constants';
 import {deleteCookie} from '../utils/cookieHandler'
 import { setCookie } from '../utils/cookieHandler';
+// import * as types from '../actions';
 
  export const loginUserService = (request) => {
     const LOGIN_API_ENDPOINT = 'https://swapi.dev/api/people';
@@ -15,7 +16,9 @@ import { setCookie } from '../utils/cookieHandler';
     return axios.get(LOGIN_API_ENDPOINT)
     .then(res => {
       return authenticateUser(res.data,request.user);
-    })
+    }).catch(error=>{ }
+      // {type: types.LOGIN_USER_ERROR,error}
+      )
 }
 
 function authenticateUser(data,user){

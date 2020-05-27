@@ -11,7 +11,9 @@ export const searchUserService = (request) => {
     return axios.get(SEARCH_API_ENDPOINT)
     .then(res => {
       return searchPlanet(res.data,request.searchTerm);
-    })
+    }).catch(error=>{ }
+      // {type: types.USER_SEARCH_ERROR,error}
+      )
 }
 
 async function searchPlanet(data,searchText){
